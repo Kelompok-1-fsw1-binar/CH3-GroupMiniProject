@@ -1,14 +1,35 @@
+// Mini Challange 1
 const math = require("./scripts/mini-task1");
+// Mini Challange 2
 const fs = require("fs");
+// Mini Challange 3
+const http = require("http");
+const port = 3000;
+const host = "localhost";
 
 // Mini Challange 1
+console.log("================================================\n");
+console.log("Mini Challange 2 : [Operasi Aritmatika Dasar]");
 console.log(`add 2 + 3 = ${math.add(2, 3)}`);
 console.log(`subtract 5 - 3 = ${math.subtract(5, 3)}`);
 console.log(`multiply 2 * 3 = ${math.multiply(2, 3)}`);
 console.log(`divide 6 / 3 = ${math.divide(6, 3)}`);
 
-//Mini Challange 2
-console.log("\n\n================================================");
-console.log("Baca Log");
+// Mini Challange 2
+console.log("\n================================================\n");
+console.log("Mini Challange 2 : [Baca Log]");
 const bacaLog = fs.readFileSync("./scripts/log.txt", "utf-8");
 console.log({ bacaLog });
+
+// Mini Challange 3
+console.log("\n================================================\n");
+console.log("Mini Challange 3 : [Handle Request HTTP]");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Kelompok 1");
+});
+
+server.listen(port, host, () => {
+  console.log(`Server berjalan di http://${host}:${port}/`);
+});
