@@ -6,6 +6,8 @@ const fs = require("fs");
 const http = require("http");
 const port = 3000;
 const host = "localhost";
+// Mini Challange 4
+const axios = require("axios");
 
 // Mini Challange 1
 console.log("================================================\n");
@@ -33,3 +35,25 @@ const server = http.createServer((req, res) => {
 server.listen(port, host, () => {
   console.log(`Server berjalan di http://${host}:${port}/`);
 });
+
+// Mini Challange 4
+const challange4 = () => {
+  console.log("\n================================================\n");
+  console.log("Mini Challange 4 : [Consume API With Axios]");
+  axios
+    .get("https://fakestoreapi.com/products")
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((e) => {
+      // Menampilkan Error Jika Terjadi Masalah
+      console.log(e);
+    })
+    .finally(() => {
+      // Final Akan Selalu Di Eksekusi
+      console.log("done");
+    });
+  console.log("\n================================================");
+};
+
+const myTimeout = setTimeout(challange4, 2000);
