@@ -8,7 +8,7 @@ const apiUrl = 'https://reqres.in/api/users';
 axios.get(apiUrl)
     .then(response => {
         // Menggunakan data yang diterima dari API
-        console.log('Data dari external API:');
+        console.log('Data dari external API reqres.in users:');
         console.log(response.data);
     })
     .catch(error => {
